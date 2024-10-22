@@ -21,15 +21,12 @@ public class Main {
             if(employee.equals(p.getName())) {
                 if (!(p instanceof Employee)) throw new ClassCastException(employee + " is not an employee");
                 a = p;
-                break;
             }
-        }
-        for(Person p: persons) {
             if(manager.equals(p.getName())) {
                 if (!(p instanceof Manager)) throw new ClassCastException(manager + " is not a manager");
                 b = p;
-                break;
             }
+            if (a != null && b != null) break;
         }
         if (a == null) throw new NoSuchElementException(employee + " does not exist");
         if (b == null) throw new NoSuchElementException(manager + " does not exist");
@@ -52,15 +49,12 @@ public class Main {
             if(developer.equals(p.getName())) {
                 if (!(p instanceof Developer)) throw new ClassCastException(developer + " is not a developer");
                 a = p;
-                break;
             }
-        }
-        for(Person p: persons) {
             if(manager.equals(p.getName())) {
                 if (!(p instanceof Manager)) throw new ClassCastException(manager + " is not a manager");
                 b = p;
-                break;
             }
+            if (a != null && b != null) break;
         }
         if (a == null) throw new NoSuchElementException(developer + " does not exist");
         if (b == null) throw new NoSuchElementException(manager + " does not exist");
@@ -82,16 +76,13 @@ public class Main {
         for(Person p: persons) { // Customer
             if(customer.equals(p.getName())) {
                 if (!(p instanceof Customer)) throw new ClassCastException(customer + " is not a customer");
-                a = (Customer) p; 
-                break;
+                a = (Customer) p;
             }
-        }
-        for(Person p: persons) { // Employee
             if(employee.equals(p.getName())) {
                 if (!(p instanceof Employee)) throw new ClassCastException(employee + " is not an employee");
                 b = (Employee) p;
-                break;
             }
+            if (a != null && b != null) break;
         }
         if (a == null) throw new NoSuchElementException(customer + " does not exist");
         if (b == null) throw new NoSuchElementException(employee + " does not exist");
