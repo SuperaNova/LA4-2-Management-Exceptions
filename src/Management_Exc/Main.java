@@ -76,17 +76,17 @@ public class Main {
      * @throws IllegalArgumentException when given customer or employee is not what they are
      * @throws NoSuchElementException when given customer or employee is not in the list of persons
      */
-    public static String customerSpeak(List<Person> persons, String customer, String employee) throws NullPointerException {
+    public static String customerSpeak(List<Person> persons, String customer, String employee) {
         Customer a = null;
         Employee b = null;
-        for(Person p: persons) {
+        for(Person p: persons) { // Customer
             if(customer.equals(p.getName())) {
                 if (!(p instanceof Customer)) throw new ClassCastException(customer + " is not a customer");
                 a = (Customer) p; 
                 break;
             }
         }
-        for(Person p: persons) {
+        for(Person p: persons) { // Employee
             if(employee.equals(p.getName())) {
                 if (!(p instanceof Employee)) throw new ClassCastException(employee + " is not an employee");
                 b = (Employee) p;
@@ -96,6 +96,6 @@ public class Main {
         if (a == null) throw new NoSuchElementException(customer + " does not exist");
         if (b == null) throw new NoSuchElementException(employee + " does not exist");
 
-        return ((Customer) a).speak((Employee) b);
+        return a.speak(b);
     }
 }
